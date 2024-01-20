@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "npm-run-all lint",
-    "start": "cross-env NODE_ENV=local DEBUG_FETCH_CLIENT=false nodemon src/app.ts",
     "lint": "eslint src/**/*.ts --fix --ignore-patter node_modules"
   },
   "dependencies": {
