@@ -1,10 +1,10 @@
 import { S3Client, CreateBucketCommand, ListBucketsCommand } from '@aws-sdk/client-s3'
 
-let s3Client: s3Client
+let s3Client: S3Client
 
 const getClient = (region: string, endpoint: string) => {
     if (!s3Client) {
-        s3Client = new s3Client({
+        s3Client = new S3Client({
             region,
             endpoint,
             forcePathStyle: true
@@ -22,7 +22,7 @@ export const localBucket = {
             Bucket: 'local-bucket'
         })
         await s3.send(command)
-        const buckets = await s3.send(new ListBucketsCommand({})
+        const buckets = await s3.send(new ListBucketsCommand({}))
         console.log('buckets', buckets)
         process.env.BUCKET_NAME = 'local-buckets'
     }
