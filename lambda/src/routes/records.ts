@@ -16,7 +16,7 @@ router.get('/:id', async (req: any, res: any, next: any) => {
 router.post('/', async (req: any, res: any, next: any) => {
     try {
        const record = await new RecordService().put(
-           recordAdapter.convert(req.body)
+           recordAdapter.convertOne(req.body)
        )
        res.status(200).send(record)
     } catch (error) {
