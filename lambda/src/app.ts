@@ -4,6 +4,7 @@ import express from 'express'
 import cors from 'cors'
 
 import * as health from './routes/health'
+import * as records from './routes/records'
 
 import { localBucket } from '../scripts/local-bucket'
 import { datasourceInitializer } from 'typeorm-dynamodb'
@@ -22,6 +23,7 @@ app.use(
 app.use(datasourceInitializer({ entities: allEntities, synchronize: true }))
 
 app.use('/health', health.router)
+app.use('/records', records.router)
 
 app.listen(3001, () => console.log('Listening on: 3001'))
 
