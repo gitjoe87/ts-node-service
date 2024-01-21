@@ -2,12 +2,12 @@ import { Column, Entity, PrimaryColumn } from 'typeorm'
 import { GlobalSecondaryIndex } from 'typeorm-dynamodb'
 
 @Entity({
-    name: 'example_entity',
+    name: 'example-entity',
     schema: 'node-service',
     database: 'local'
 })
 @GlobalSecondaryIndex({
-    name: 'example_index',
+    name: 'example-index',
     partitionKey: 'exampleColumn',
     sortKey: 'id'
 })

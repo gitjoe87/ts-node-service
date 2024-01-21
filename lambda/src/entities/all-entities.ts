@@ -1,4 +1,4 @@
-import { ExampleEntity } from './example_entity'
+import { ExampleEntity } from './example-entity'
 
 const allEntities = [
     ExampleEntity
