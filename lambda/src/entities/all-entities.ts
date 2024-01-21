@@ -1,7 +1,7 @@
-import { ExampleEntity } from './example-entity'
+import { Record } from './record'
 
 const allEntities = [
-    ExampleEntity
+    Record
 ]
 
 export default allEntities

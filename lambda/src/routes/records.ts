@@ -1,11 +1,23 @@
 import express from 'express'
-import { ExampleService } from '../services/example-service'
+import { RecordService } from '../services/record-service'
+import { recordAdapter } from '../adapters/record-adapter'
 
 const router = express.Router()
 
 router.get('/:id', async (req: any, res: any, next: any) => {
     try {
-       const record = await new ExampleService().get(req.params.id)
+       const record = await new RecordService().get(req.params.id)
+       res.status(200).send(record)
+    } catch (error) {
+       next(error)
+    }
+})
+
+router.post('/', async (req: any, res: any, next: any) => {
+    try {
+       const record = await new RecordService().put(
+           recordAdapter.convert(req.body)
+       )
        res.status(200).send(record)
     } catch (error) {
        next(error)
