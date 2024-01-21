@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cross-env nodemon app.ts",
+    "start": "cross-env NODE_ENV=local nodemon src/app.ts",
     "lint": "eslint src/**/*.ts --fix --ignore-patter node_modules"
   },
   "dependencies": {
