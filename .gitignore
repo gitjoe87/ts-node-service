@@ -7,10 +7,9 @@ test-reports
 !lambda/webpack.config.js
 !lambda/.eslintrc.js
 lambda/coverage
-groups.json
-users.json
-.env
+lambda/.env
 .idea
+
 .cdk.staging
 cdk.out
 .DS_Store
