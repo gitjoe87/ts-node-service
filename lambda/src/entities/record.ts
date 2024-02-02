@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn } from 'typeorm'
 @Entity({
     name: 'record',
     schema: 'node-service',
-    database: 'local'
+    database: process.env.NODE_ENV
 })
 export class Record {
     @PrimaryColumn({ name: 'id', type: 'varchar' })

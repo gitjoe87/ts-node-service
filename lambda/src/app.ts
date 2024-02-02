@@ -25,14 +25,15 @@ app.use(datasourceInitializer({ entities: allEntities, synchronize: true }))
 app.use('/health', health.router)
 app.use('/records', records.router)
 
-app.listen(3001, () => console.log('Listening on: 3001'))
-
-localBucket.create()
-    .then(() => {
-        console.log('Local bucket created')
-    })
-    .catch((error: any) => {
-        console.error('Failed to initialize local bucket', error)
-    })
+if (process.env.NODE_ENV === 'local') {
+    app.listen(3001, () => console.log('Listening on: 3001'))
+    localBucket.create()
+        .then(() => {
+            console.log('Local bucket created')
+        })
+        .catch((error: any) => {
+            console.error('Failed to initialize local bucket', error)
+        })
+}
 
 module.exports.handler = serverless(app)
